@@ -1,0 +1,26 @@
+HOOKUP INSTRUCTIONS SONY MDS-JE510
+---------------------------------------------------
+This requires soldering, continue at your own risk!
+
+The arduino needs 3 connections to the MD deck:
++5V, GND, IR DATA.
+
+The chassis is connected to GND so connect the 
+a wire from Arduino GND to a mounting screw with good metal connection.
+
++5V: There is 5V several places in the MD, but I have connected it directly to
+IC309 Pin 1. This 5V is active only when power is on, not standby. This saves 
+on standby power usage (but cannot wake the MD by keyboard).
+
+Solder a wire onto this pin and connect it to 5V on arduino board. 
+Disconnect this wire while you are powering the arduino over usb.
+
+IR DATA:
+Solder a wire from pin 3 (bottom pin) on IC702 located on the display card (right behind the power button).
+Connect this to Arduino IRDATA PIN (default pin 3).
+
+
+PS/2 CONNECTOR:
+Up to you where to mount it :)
+
+See attached image for clearification.
