@@ -8,9 +8,10 @@ Tested on Sony MDS-JE510 but I see no reason for it not to work on other Sony de
 See Hookup folder for instruction how to connect.
 
 
-USAGE
 
 -----------------------------------------------------------------------------------------
+USAGE
+
 
 Navigate tracks with UP/DOWN keys.
 
@@ -44,9 +45,10 @@ A-Z a-z 0-9 . - / ' ? ! Space
 
 
 
-NOTES
 
 -----------------------------------------------------------------------------------------
+NOTES
+
 
 Keyboard layout:
 
