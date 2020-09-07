@@ -116,6 +116,7 @@ void setup() {
 	keyboard.begin(DATAPIN, IRQPIN);
 	keyboard.setNoBreak(1);		// Disable break codes
 	keyboard.setNoRepeat(1);	// Disable repeat
+	keyboard.resetKey(); 
 }
 
 void loop() {
