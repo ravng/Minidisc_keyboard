@@ -26,6 +26,7 @@ Next track      Down
 Play            F1
 Pause           F2
 Record          F3
+Display			F5
 Eject           F12
 
 */
@@ -302,6 +303,8 @@ void loop() {
 				sendcmd(CMD_PAUSE,0);    
 			if ( ps2raw == 355 )    // F3
 				sendcmd(CMD_REC,0);
+			if ( ps2raw == 357 )    // F5
+				sendcmd(CMD_DISPLAY,0);
 			if ( ps2raw == 364 )    //F12
 				sendcmd(CMD_EJECT,0);
 		}
