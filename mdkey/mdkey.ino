@@ -288,8 +288,10 @@ void loop() {
 				sendcmd(CMD_CLEAR,0);
 			if ( ps2raw == 283 )     // ESC
 				sendcmd(CMD_STOP,0);
-			if ( ps2raw == 286 )     // Enter
+			if ( ps2raw == 286 ) {    // Enter
 				sendcmd(CMD_NAME,0);
+				currentmodifier = 2;
+			}
 			if ( ps2raw == 353 )    // F1
 				sendcmd(CMD_PLAY,0);
 			if ( ps2raw == 354 )    // F2
