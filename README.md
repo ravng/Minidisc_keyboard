@@ -33,6 +33,8 @@ F1 Play
 F2 Pause
   
 F3 Record
+
+F5 Display
   
 ESC Stop
  
