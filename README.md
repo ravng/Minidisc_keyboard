@@ -1,16 +1,48 @@
 # Minidisc_keyboard
 
-This project adds PS/2 Keyboard support
-to Sony Mini disc decks like the MD-JE510
+This project adds PS/2 Keyboard port to Sony Mini disc HiFI Decks.
 
-It support two operation modes:
+Tested on Sony MDS-JE510 but I see no reason for it not to work on other Sony decks as well.
+See Hookup folder for instruction how to connect.
 
-Hardwired:
-Intended to use internlly in the deck.
-Connect IRDATA to IR receiver datapin
-on the player pcb, as well as 5V and GND.
-Set SIGNALTYPE to 0
+USAGE
+-----------------------------------------------------------------------------------------
+Navigate tracks with UP/DOWN keys.
+Edit name for selected track with ENTER.
+Input the song name, it will automatically change between upper,lower,number and symbol.
+Use LEFT/RIGHT arrows to navigate within the title.
+Use Backspace to erase backwards, or DELETE to delete selected character.
+Use <ESC> to exit without saving or <ENTER> to save.
 
-Wireless:
-Connect IRDATA to IR transmitter diode.
-Set SIGNALTYPE to 1
+Other keys:
+<F1> Play
+<F2> Pause
+<F3> Record
+<ESC> Stop
+<F12> Eject
+  
+
+VALID INPUT CHARACTERS
+-----------------------------------------------------------------------------------------
+A-Z
+a-z
+0-9
+.
+-
+/
+'
+?
+!
+Space
+
+
+NOTES
+-----------------------------------------------------------------------------------------
+Keyboard layout:
+You might need to adjust the key actions depending on your keyboard layout for some keys
+like: / - '
+
+Missing characters:
+I have copied the IR codes from my RM-D7M remote. This remote lacks some symbols, like :
+I am sure there exists IR codes for those symbols as well, so if anyone can help out
+that would be great!
