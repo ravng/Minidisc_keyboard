@@ -137,6 +137,10 @@ void loop() {
 				sendcmd(CMD_EXL,0);
 			if ( ps2code == 38 )  // /
 				sendcmd(CMD_SLASH,0);
+			if ( ps2code == 40 )  // .
+				sendcmd(CMD_RPAR,0);   
+			if ( ps2code == 42 )  // .
+				sendcmd(CMD_LPAR,0);   
 			if ( ps2code == 46 )  // .
 				sendcmd(CMD_DOT,0);   
 			if ( ps2code == 47 )  // -
