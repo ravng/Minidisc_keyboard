@@ -27,15 +27,15 @@ Use <ESC> to exit without saving or <ENTER> to save.
 
 Other keys:
 
-<F1> Play
+F1 Play
   
-<F2> Pause
+F2 Pause
   
-<F3> Record
+F3 Record
   
-<ESC> Stop
+ESC Stop
  
-<F12> Eject
+F12 Eject
     
 
 VALID INPUT CHARACTERS
