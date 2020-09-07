@@ -23,7 +23,7 @@ Use LEFT/RIGHT arrows to navigate within the title.
 
 Use Backspace to erase backwards, or DELETE to delete selected character.
 
-Use <ESC> to exit without saving or <ENTER> to save.
+Use ESC to exit without saving or ENTER to save.
   
 
 Other keys:
