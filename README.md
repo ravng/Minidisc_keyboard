@@ -17,8 +17,9 @@ See Hookup folder for instruction how to connect.
 Tested on Arduino UNO and Sony MDS-JE510
 
 
-COMPILING
 -----------------------------------------------------------------------------------------
+COMPILING
+
 Copy correct IR code file from ircodes to project directory and change IRcode include if
 needed (default is RM-D7M).
 
