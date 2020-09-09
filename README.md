@@ -5,8 +5,22 @@ This project adds PS/2 Keyboard port to Sony Mini disc HiFI Decks.
 
 Tested on Sony MDS-JE510 but I see no reason for it not to work on other Sony decks as well.
 
+There is two versions available:
+
+
+mdkey:  Hardwired version (for mounting PS/2 connector internally in a deck)
+
+mdkey-ir: Using an IR diode to convert PS/2 keyboard to wireless MD keyboard.
+
 See Hookup folder for instruction how to connect.
 
+Tested on Arduino UNO and Sony MDS-JE510
+
+
+COMPILING
+-----------------------------------------------------------------------------------------
+Copy correct IR code file from ircodes to project directory and change IRcode include if
+needed (default is RM-D7M).
 
 
 -----------------------------------------------------------------------------------------
