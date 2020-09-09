@@ -10,8 +10,9 @@ on the player pcb, as well as 5V and GND.
 
 
 Project requires the following external libraries:
-PS2KeyAdvanced
-PS2KeyMap
+PS2KeyAdvanced	By Paul Carpenter https://github.com/techpaul/PS2KeyAdvanced
+PS2KeyMap 		By Paul Carpenter https://github.com/techpaul/PS2KeyMap
+
 
 Default connection on Arduino:
 PS/2 Data pin 	8
@@ -33,70 +34,13 @@ Eject           F12
 
 #include <PS2KeyAdvanced.h>
 #include <PS2KeyMap.h>
+#include "RM-D7M.h"			// Set to correct IR code file.
 #define DATAPIN	8			// PS/2 Data
 #define IRQPIN	2			// PS/2 Clock/IRQ 
 #define IRDATA	3			// IR output pin
 #define ALLOW_REMOTE	0	// Set to 1 to allow for both keyboard and remote control to work simultaneous. Note that this slows down keyboard some!
 PS2KeyAdvanced keyboard;
 PS2KeyMap keymap;
-
-// IR Codes
-#define CMD_A		"101110011110"  //A - Continue
-#define CMD_B		"011110011110"  //B - Shuff1e
-#define CMD_C		"111110011110"  //C- Program
-#define CMD_D		"110110011110"  //D 
-#define CMD_E		"010110011110"  //E
-#define CMD_F		"000000011110"  //F-1
-#define CMD_G		"100000011110"  //G-2
-#define CMD_H		"010000011110"  //H-3
-#define CMD_I		"110000011110"  //I-4
-#define CMD_J		"001000011110"  //J-5
-#define CMD_K		"101000011110"  //K-6
-#define CMD_L		"011000011110"  //L-7
-#define CMD_M		"111000011110"  //M-8
-#define CMD_N		"000100011110"  //N-9
-#define CMD_O		"100100011110"  //O-10
-#define CMD_P		"000000111110"  //P-11
-#define CMD_Q		"100000111110"  //Q-12
-#define CMD_R		"010000111110"  //R-13
-#define CMD_S		"110000111110"  //S-14
-#define CMD_T		"001000111110"  //T-15
-#define CMD_U		"101000111110"  //U-16
-#define CMD_V		"011000111110"  //V-17
-#define CMD_W		"111000111110"  //W-18
-#define CMD_X		"000100111110"  //X-19
-#define CMD_Y		"100100111110"  //Y-20
-#define CMD_Z		"010100111110"  //Z-21
-#define CMD_DASH	"110100111110"  //DASH-22
-#define CMD_SPACE	"001100111110"  //Space- 23
-#define CMD_DOT		"101100111110"  //DOT-24
-#define CMD_APOST	"011100111110"  //Apostrophe-25
-#define CMD_SLASH	"010100011110"  // /- >25
-#define CMD_QUEST	"011001011110"  //?-REPEAT
-#define CMD_EXL		"111001011110"  //!-A-B
-#define CMD_LPAR	"110011011110"  //(A.Space
-#define CMD_RPAR	"001011011110"  //) M.Scan
-#define CMD_NAME	"001111011110"  
-#define CMD_CHAR	"011011011110"
-#define CMD_NUM		"111011011110"
-#define CMD_CLEAR	"111100011110"
-#define CMD_PLAY	"010101011110"
-#define CMD_PAUSE	"100101011110"
-#define CMD_STOP	"000101011110"
-#define CMD_PREV	"000001011110"
-#define CMD_NEXT	"100001011110"
-#define CMD_REC		"101101011110"
-#define CMD_SBACK	"110101011110"
-#define CMD_SFWD	"001101011110"
-#define CMD_TREC	"000011011110"
-#define CMD_MSYNC	"111111011110"
-#define CMD_EJECT	"011010011110"
-#define CMD_SCROLL	"100110011110"
-#define CMD_DISPLAY	"000110011110"
-#define CMD_ONOFF	"101010011110"
-#define CMD_NAME	"001111011110"
-
-
 
 // Globals
 uint16_t ps2code;
@@ -315,6 +259,8 @@ void loop() {
 
 void sendcmd(char data[12], unsigned int modifier) {
 	if ( modifier != 0 and modifier != currentmodifier ) {
+		if ( currentmodifier == 3 and modifier == 1 )
+			modifier=4;
 		// 0 = Does not matter
 		// 1 = lowercase
 		// 2 = uppercase
@@ -326,8 +272,11 @@ void sendcmd(char data[12], unsigned int modifier) {
 			dosend(CMD_CHAR);
 		if ( modifier == 3 )
 			dosend(CMD_NUM);
-		if ( modifier == 4 )
-			dosend(CMD_NUM);
+		if ( modifier == 4 ) {
+			dosend(CMD_CHAR);
+			delay(50);
+			dosend(CMD_CHAR);
+		}	
 		currentmodifier=modifier;
 		delay(800); // Wait for MDS-JE510 between state changes.
 	}
